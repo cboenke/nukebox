@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Greeting from "../components/greeting";
+import Greeting from "../components/Greetings";
 
 export default function Home() {
   return (
