@@ -1,17 +1,17 @@
 import styles from "../styles/TrackItem.module.css";
 
 type Props = {
-  artist: string;
+  imgSrc: string;
   title: string;
-  cover: string;
+  artist: string;
 };
 
-export default function TrackItem(props: Props) {
+export default function TrackItem({ imgSrc, title, artist }: Props) {
   return (
-    <li className={styles.listitem}>
-      <img className={styles.cover} src={props.cover} />
-      <h4 className={styles.artist}>{props.artist}</h4>
-      <p className={styles.title}>{props.title}</p>
+    <li className={styles.trackItem}>
+      <img className={styles.img} src={imgSrc} />
+      <div className={styles.title}>{title}</div>
+      <div className={styles.artist}>{artist}</div>
     </li>
   );
 }
