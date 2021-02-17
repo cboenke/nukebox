@@ -17,6 +17,9 @@
 
 .title {
   grid-area: title;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .artist {
