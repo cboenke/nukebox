@@ -15,9 +15,9 @@ export default function Home() {
       <main className={styles.main}>
         <ul className={styles.tracklist}>
           <TrackItem
-            cover="/cover_track_1.jpg"
-            artist="F Your Purse"
+            imgSrc="/cover_track_1.jpg"
             title="The Read"
+            artist="F Your Purse"
           />
         </ul>
       </main>
