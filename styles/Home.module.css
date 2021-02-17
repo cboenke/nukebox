@@ -1,9 +1,11 @@
 .container {
   display: grid;
   grid-auto-flow: row;
+  padding-left: 20px;
 }
 
 .tracklist {
   display: grid;
   grid-auto-flow: column;
+  padding: 0;
 }
