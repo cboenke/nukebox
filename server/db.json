@@ -1,0 +1,34 @@
+{
+  "tracks": [
+    {
+      "id": "wincent-weiss_wer-wenn-nicht-wir",
+      "imgSrc": "/img_track_1.jpg",
+      "title": "Wer wenn nicht wir",
+      "artist": "Wincent Weiss"
+    },
+    {
+      "id": "dan-davidson_found",
+      "imgSrc": "/img_track_2.jpg",
+      "title": "Found",
+      "artist": "Dan Davidson"
+    },
+    {
+      "id": "luke-bryan_knockin'-boots",
+      "imgSrc": "/img_track_3.jpg",
+      "title": "Knockin' Boots",
+      "artist": "Luke Bryan"
+    },
+    {
+      "id": "luis-fonsi_corazón-en-la-maleta",
+      "imgSrc": "/img_track_4.jpg",
+      "title": "Corazón En La Maleta",
+      "artist": "Luis Fonsi"
+    },
+    {
+      "id": "jawsh-685-jason-derulo_savage-love",
+      "imgSrc": "/img_track_5.jpg",
+      "title": "Savage Love (Laxed - Siren Beat)",
+      "artist": "Jawsh 685, Jason Derulo"
+    }
+  ]
+}
