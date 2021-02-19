@@ -4,31 +4,36 @@
       "id": "wincent-weiss_wer-wenn-nicht-wir",
       "imgSrc": "/img_track_1.jpg",
       "title": "Wer wenn nicht wir",
-      "artist": "Wincent Weiss"
+      "artist": "Wincent Weiss",
+      "audioSrc": "/beach_party.mp3"
     },
     {
       "id": "dan-davidson_found",
       "imgSrc": "/img_track_2.jpg",
       "title": "Found",
-      "artist": "Dan Davidson"
+      "artist": "Dan Davidson",
+      "audioSrc": "/maccary_bay.mp3"
     },
     {
       "id": "luke-bryan_knockin'-boots",
       "imgSrc": "/img_track_3.jpg",
       "title": "Knockin' Boots",
-      "artist": "Luke Bryan"
+      "artist": "Luke Bryan",
+      "audioSrc": "/mandeville.mp3"
     },
     {
       "id": "luis-fonsi_corazón-en-la-maleta",
       "imgSrc": "/img_track_4.jpg",
       "title": "Corazón En La Maleta",
-      "artist": "Luis Fonsi"
+      "artist": "Luis Fonsi",
+      "audioSrc": "/slow_ska_game_loop.mp3"
     },
     {
       "id": "jawsh-685-jason-derulo_savage-love",
       "imgSrc": "/img_track_5.jpg",
       "title": "Savage Love (Laxed - Siren Beat)",
-      "artist": "Jawsh 685, Jason Derulo"
+      "artist": "Jawsh 685, Jason Derulo",
+      "audioSrc": "/stealth_groover.mp3"
     }
   ]
 }
