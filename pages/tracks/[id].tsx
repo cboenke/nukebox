@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { Player } from "../../components/Player";
 import TrackDetails from "../../components/TrackDetails";
 import { APITrack, getTrack } from "../../utils/api";
+import { Navigation } from "../../components/Navigation";
+import styles from "../../styles/TrackView.module.css";
 
 export default function Track() {
+  const [track, setTrack] = useState<APITrack>(null);
   const router = useRouter();
   const { id } = router.query;
-  const [track, setTrack] = useState<APITrack>(null);
 
   useEffect(() => {
     if (typeof id !== "string") {
@@ -23,8 +25,10 @@ export default function Track() {
   }
 
   return (
-    <div>
-      {/* <header><Navigation /></header> */}
+    <div className={styles.container}>
+      <header>
+        <Navigation />
+      </header>
       <main>
         <TrackDetails
           imgSrc={track.imgSrc}

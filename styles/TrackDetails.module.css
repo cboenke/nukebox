@@ -1,29 +1,32 @@
 .trackDetails {
   list-style: none;
   display: grid;
-  grid-template: 1.6em 1.6em / 3.2em 1fr;
-  grid-template-areas:
-    "img title"
-    "img artist";
+  grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 15px;
   align-items: center;
+  text-align: center;
 }
 
 .img {
-  grid-area: img;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  justify-self: center;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 .title {
   grid-area: title;
+  padding-top: 1em;
+  text-align: center;
 }
 
 .artist {
   grid-area: artist;
   color: var(--secondary-text);
+  text-align: center;
 }
 
 .trackItem .title {
