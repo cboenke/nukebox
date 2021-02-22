@@ -6,7 +6,7 @@ type AudioFile = {
 
 export function Player(props: AudioFile) {
   return (
-    <div className={styles.xxx}>
+    <div className={styles.audioPlayer}>
       <audio controls src={props.audioSrc}>
         Your browser does not support the <code>audio</code> element.
       </audio>

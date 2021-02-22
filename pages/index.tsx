@@ -14,12 +14,6 @@ export default function Home() {
     getTracks().then((newTracks) => {
       setTracks(newTracks);
     });
-
-    // async function doFetch() {
-    //   const newTracks = await getTracks();
-    //   setTracks(newTracks);
-    // }
-    // doFetch()
   }, []);
 
   const trackItems = tracks.map((track) => (
