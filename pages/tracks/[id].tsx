@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Player } from "../../components/Player";
+import AudioPlayer from "../../components/ReactAudioPlayer";
 import TrackDetails from "../../components/TrackDetails";
 import { APITrack, getTrack } from "../../utils/api";
 import { Navigation } from "../../components/Navigation";
@@ -37,7 +37,7 @@ export default function Track() {
         />
       </main>
       <footer>
-        <Player audioSrc={track.audioSrc} />
+        <AudioPlayer src={track.audioSrc} />
       </footer>
     </div>
   );
