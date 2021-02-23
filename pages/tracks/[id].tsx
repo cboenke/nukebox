@@ -10,10 +10,10 @@ export default function Track() {
   const [track, setTrack] = useState<APITrack>(null);
   const router = useRouter();
   const { id } = router.query;
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(null);
 
   useEffect(() => {
-    if (typeof id !== "string") {
+    if (typeof id !== "string" || favorite === null) {
       return;
     }
     if (favorite) {
