@@ -10,6 +10,19 @@ export default function Track() {
   const [track, setTrack] = useState<APITrack>(null);
   const router = useRouter();
   const { id } = router.query;
+  const [favorite, setFavorite] = useState(false);
+
+  useEffect(() => {
+    if (typeof id !== "string") {
+      return;
+    }
+    if (favorite) {
+      localStorage.setItem("favoriteSong", id);
+    }
+    if (!favorite) {
+      localStorage.removeItem("favoriteSong");
+    }
+  }, [favorite]);
 
   useEffect(() => {
     if (typeof id !== "string") {
@@ -17,6 +30,7 @@ export default function Track() {
     }
     getTrack(id).then((currentTrack) => {
       setTrack(currentTrack);
+      setFavorite(id === localStorage.getItem("favoriteSong"));
     });
   }, [id]);
 
@@ -36,6 +50,9 @@ export default function Track() {
           artist={track.artist}
         />
       </main>
+      <button onClick={() => setFavorite(!favorite)}>
+        {favorite ? "💘" : "🖤"}
+      </button>
       <footer>
         <AudioPlayer src={track.audioSrc} />
       </footer>
