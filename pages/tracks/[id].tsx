@@ -11,20 +11,11 @@ export default function Track() {
   const [track, setTrack] = useState<APITrack>(null);
   const router = useRouter();
   const { id } = router.query;
-  const [favorite, setFavorite] = useState(null);
-  const [storedValue, setValue] = useLocalStorage("favoriteSong", "");
-
-  useEffect(() => {
-    if (typeof id !== "string" || favorite === null) {
-      return;
-    }
-    if (favorite) {
-      setValue(id);
-    }
-    if (!favorite) {
-      setValue("");
-    }
-  }, [favorite]);
+  const [favoriteSongs, setFavoriteSongs] = useLocalStorage(
+    "favoriteSongs",
+    []
+  );
+  const favorite = favoriteSongs.includes(id);
 
   useEffect(() => {
     if (typeof id !== "string") {
@@ -32,9 +23,19 @@ export default function Track() {
     }
     getTrack(id).then((currentTrack) => {
       setTrack(currentTrack);
-      setFavorite(id === storedValue);
     });
   }, [id]);
+
+  const handleFavoriteClick = () => {
+    if (favorite) {
+      const newFavoriteSongs = favoriteSongs.filter(
+        (favoriteSong) => favoriteSong !== id
+      );
+      setFavoriteSongs(newFavoriteSongs);
+    } else {
+      setFavoriteSongs([...favoriteSongs, id]);
+    }
+  };
 
   if (!track) {
     return <div>Loading...</div>;
@@ -52,9 +53,7 @@ export default function Track() {
           artist={track.artist}
         />
       </main>
-      <button onClick={() => setFavorite(!favorite)}>
-        {favorite ? "💘" : "🖤"}
-      </button>
+      <button onClick={handleFavoriteClick}>{favorite ? "💘" : "🖤"}</button>
       <footer>
         <AudioPlayer src={track.audioSrc} />
       </footer>
