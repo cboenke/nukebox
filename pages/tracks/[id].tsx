@@ -10,8 +10,9 @@ import styles from "../../styles/TrackView.module.css";
 export default function Track() {
   const [track, setTrack] = useState<APITrack>(null);
   const router = useRouter();
-  const { id } = router.query;
-  const [favoriteSongs, setFavoriteSongs] = useLocalStorage(
+  const { id: idQuery } = router.query;
+  const id = typeof idQuery === "string" ? idQuery : idQuery[0];
+  const [favoriteSongs, setFavoriteSongs] = useLocalStorage<string[]>(
     "favoriteSongs",
     []
   );
@@ -52,8 +53,11 @@ export default function Track() {
           title={track.title}
           artist={track.artist}
         />
+        <button className={styles.favbtn} onClick={handleFavoriteClick}>
+          {favorite ? "💘" : "🖤"}
+        </button>
       </main>
-      <button onClick={handleFavoriteClick}>{favorite ? "💘" : "🖤"}</button>
+
       <footer>
         <AudioPlayer src={track.audioSrc} />
       </footer>
