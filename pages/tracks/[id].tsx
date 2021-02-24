@@ -11,6 +11,9 @@ export default function Track() {
   const [track, setTrack] = useState<APITrack>(null);
   const router = useRouter();
   const { id: idQuery } = router.query;
+  if (!idQuery) {
+    return null;
+  }
   const id = typeof idQuery === "string" ? idQuery : idQuery[0];
   const [favoriteSongs, setFavoriteSongs] = useLocalStorage<string[]>(
     "favoriteSongs",

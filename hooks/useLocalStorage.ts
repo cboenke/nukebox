@@ -18,7 +18,7 @@ export default function useLocalStorage<T>(
     localStorage.setItem(key, JSON.stringify(value));
   };
 
-  const [storedValue, setStoredValue] = useState(readFromLocalStorage);
+  const [storedValue, setStoredValue] = useState<T>(readFromLocalStorage);
 
   const setValue = (value: T) => {
     writeToLocalStorage(value);
