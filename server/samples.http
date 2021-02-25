@@ -1,0 +1,26 @@
+### GET HTML of index page
+GET http://localhost:3000
+
+### GET HTML of track page
+GET http://localhost:3000/tracks/localhost:3000/tracks/wincent-weiss_wer-wenn-nicht-wir
+
+### GET all tracks
+GET http://localhost:3000/api/tracks
+
+### Get a single track
+GET http://localhost:3000/api/tracks/wincent-weiss_wer-wenn-nicht-wir
+
+### DELETE a single track
+DELETE http://localhost:3000/api/tracks/dan-davidson_found
+
+### POST a new track
+POST http://localhost:3000/api/tracks
+Content-Type: application/json
+
+{
+    "id": "wincent-weiss_wer-wenn-nicht-wir",
+      "imgSrc": "/img_track_1.jpg",
+      "title": "Wer wenn nicht wir",
+      "artist": "Wincent Weiss",
+      "audioSrc": "/beach_party.mp3"
+}
