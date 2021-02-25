@@ -33,7 +33,7 @@ export default function Track() {
   const handleDeleteClick = async () => {
     await deleteTrack(track.id);
     router.back();
-
+  };
   const handleFavoriteClick = () => {
     if (favorite) {
       const newFavoriteSongs = favoriteSongs.filter(
@@ -61,13 +61,7 @@ export default function Track() {
           artist={track.artist}
         />
 
-        <button
-          onClick={async () => {
-            handleDeleteClick;
-          }}
-        >
-          Delete
-
+        <button onClick={handleDeleteClick}>Delete</button>
         <button className={styles.favbtn} onClick={handleFavoriteClick}>
           {favorite ? "💘" : "🖤"}
         </button>
