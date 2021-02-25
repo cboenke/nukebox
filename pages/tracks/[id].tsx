@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import AudioPlayer from "../../components/ReactAudioPlayer";
 import TrackDetails from "../../components/TrackDetails";
-import { APITrack, getTrack } from "../../utils/api";
+import { APITrack, deleteTrack, getTrack } from "../../utils/api";
 import { Navigation } from "../../components/Navigation";
 import styles from "../../styles/TrackView.module.css";
 
@@ -20,6 +20,11 @@ export default function Track() {
     });
   }, [id]);
 
+  const handleDeleteClick = async () => {
+    await deleteTrack(track.id);
+    router.back();
+  };
+
   if (!track) {
     return <div>Loading...</div>;
   }
@@ -35,6 +40,13 @@ export default function Track() {
           title={track.title}
           artist={track.artist}
         />
+        <button
+          onClick={async () => {
+            handleDeleteClick;
+          }}
+        >
+          Delete
+        </button>
       </main>
       <footer>
         <AudioPlayer src={track.audioSrc} />
