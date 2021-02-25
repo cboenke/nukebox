@@ -6,16 +6,17 @@ export type APITrack = {
   audioSrc: string;
 };
 
-export async function getTracks() {
-  const response = await fetch("/api/tracks");
-  const tracks: APITrack[] = await response.json();
-  return tracks;
+async function fetchURL<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  return await response.json();
 }
 
-export async function getTrack(id: string) {
-  const response = await fetch(`/api/tracks/${id}`);
-  const track: APITrack = await response.json();
-  return track;
+export async function getTracks(): Promise<APITrack[]> {
+  return await fetchURL<APITrack[]>("/api/tracks");
+}
+
+export async function getTrack(id: string): Promise<APITrack> {
+  return await fetchURL<APITrack>(`/api/tracks/${id}`);
 }
 
 export async function deleteTrack(id: string) {
