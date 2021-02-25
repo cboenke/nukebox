@@ -1,0 +1,11 @@
+### GET HTML of track page
+GET http://localhost:3000/tracks/localhost:3000/tracks/wincent-weiss_wer-wenn-nicht-wir
+
+### GET all tracks
+GET http://localhost:3000/api/tracks
+
+### Get a single track
+GET http://localhost:3000/api/tracks/wincent-weiss_wer-wenn-nicht-wir
+
+### DELETE a single track
+DELETE http://localhost:3000/api/tracks/dan-davidson_found
