@@ -54,6 +54,11 @@ export default function Home() {
       </Head>
       Nukebox
       <Greeting name="Clara" />
+      <Link href={`/add-Track`}>
+        <a>
+          <button>+Track</button>
+        </a>
+      </Link>
       <main className={styles.main}>
         <p>Favoriten:</p>
         <ul className={styles.tracklist}>{favoriteTrackItems}</ul>
