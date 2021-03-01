@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Navigation } from "../components/Navigation";
 import styles from "../styles/AddTrack.module.css";
+import { postTrack } from "../utils/api";
 
 export default function AddTrack() {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
-  const [coverURL, setCoverURL] = useState("");
-  const [audioURL, setAudioURL] = useState("");
+  const [imgSrc, setImgSrc] = useState("");
+  const [audioSrc, setAudioSrc] = useState("");
   const [message, setMessage] = useState("");
 
   function handleChange(event) {
@@ -16,14 +17,14 @@ export default function AddTrack() {
     if (event.target.name === "artist") {
       setArtist(event.target.value);
     }
-    if (event.target.name === "coverURL") {
-      setCoverURL(event.target.value);
+    if (event.target.name === "imgSrc") {
+      setImgSrc(event.target.value);
     }
-    if (event.target.name === "audioURL") {
-      setAudioURL(event.target.value);
+    if (event.target.name === "audioSrc") {
+      setAudioSrc(event.target.value);
     }
   }
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     const trackData = {
       id:
         artist.trim().split(" ").join("-") +
@@ -31,28 +32,21 @@ export default function AddTrack() {
         title.trim().split(" ").join("-"),
       title: title,
       artist: artist,
-      imgSrc: coverURL,
-      audioSrc: audioURL,
+      imgSrc: imgSrc,
+      audioSrc: audioSrc,
     };
 
     event.preventDefault();
-    const postParameters = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(trackData),
-    };
-    fetch("http://localhost:3000/api/tracks", postParameters).then(
-      (response) => {
-        if (response.status === 409) {
-          setMessage("This track already exists.");
-        }
-        if (response.status === 201) {
-          setMessage("This track was successfully added.");
-        }
-        console.log(response);
-        return response.json();
+    postTrack(trackData).then((response) => {
+      if (response.status === 409) {
+        setMessage("This track already exists.");
       }
-    );
+      if (response.status === 201) {
+        setMessage("This track was successfully added.");
+      }
+      console.log(response);
+      return response.json();
+    });
   }
   return (
     <>
@@ -83,8 +77,8 @@ export default function AddTrack() {
             className={styles.input}
             type="text"
             required
-            name="coverURL"
-            value={coverURL}
+            name="imgSrc"
+            value={imgSrc}
             onChange={handleChange}
           />
 
@@ -93,8 +87,8 @@ export default function AddTrack() {
             className={styles.input}
             type="text"
             required
-            name="audioURL"
-            value={audioURL}
+            name="audioSrc"
+            value={audioSrc}
             onChange={handleChange}
           />
 
@@ -102,8 +96,8 @@ export default function AddTrack() {
         </form>
         <div className={styles.hints}>
           <div className={styles.message}>{message}</div>
-          <div className={styles.coverURL}></div>
-          <img src={coverURL} />
+          <div className={styles.imgSrc}></div>
+          <img src={imgSrc} />
         </div>
       </div>
     </>
