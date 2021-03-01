@@ -30,8 +30,9 @@ export default function AudioPlayer({ src }: Props) {
         className={styles.duration}
         type="range"
         min="0"
-        max={audioElement.duration}
+        max={audioElement.duration || 0}
         value={progress}
+        readOnly
       />
       <button className={styles.btn} onClick={() => setIsPlaying(!isPlaying)}>
         <img src={isPlaying ? "/pauseButton.svg" : "/playButton.svg"} />

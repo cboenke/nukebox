@@ -1,0 +1,28 @@
+.form {
+  display: grid;
+  grid-gap: 2em;
+  justify-content: space-around;
+  grid-template: auto/1fr 1fr;
+}
+
+.input {
+  border-radius: 15px;
+  padding: 0.3em;
+}
+
+.submit {
+  border-radius: 15px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 0.3em;
+}
+
+.container {
+  padding: 10px 20px 0 20px;
+}
+
+.hints {
+  width: 100%;
+  text-align: center;
+  padding-top: 2em;
+}

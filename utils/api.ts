@@ -22,3 +22,13 @@ export async function getTrack(id: string): Promise<APITrack> {
 export async function deleteTrack(id: string) {
   await fetch(`/api/tracks/${id}`, { method: "DELETE" });
 }
+
+export function postTrack(track) {
+  const postParameters = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(track),
+  };
+
+  return fetch("/api/tracks", postParameters);
+}
